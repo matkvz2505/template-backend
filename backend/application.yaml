@@ -1,9 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: application argocd
+  name: application-argocd
   namespace: argocd
 spec:
+  project: 'default'
+
   destination:
     namespace: sitebackend
     server: https://kubernetes.default.svc
@@ -11,6 +13,7 @@ spec:
     path: yaml
     repoURL: https://github.com/matkvz2505/template-backend.git
     targetRevision: HEAD
+
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
@@ -18,5 +21,3 @@ spec:
     automated:
       selfHeal: true
       prune: true
-
-  project: 'default'

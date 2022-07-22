@@ -12,7 +12,7 @@ spec:
     repoURL: https://github.com/matkvz2505/template-backend.git
     targetRevision: HEAD
   syncPolicy:
-    syncoptions:
+    syncOptions:
     - CreateNameSpace=true
 
     automated:

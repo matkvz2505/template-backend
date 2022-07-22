@@ -1,0 +1,102 @@
+pipeline {
+    agent any
+    environment {
+        // AWS_ACCOUNT_ID="530821374395"
+        // AWS_DEFAULT_REGION="sa-east-1"
+        // REPOSITORY_URI = "530821374395.dkr.ecr.sa-east-1.amazonaws.com"
+        // AWS_HUB_PASS="eyJwYXlsb2FkIjoiVXJqMjl2WXRPU2lLRmx0NTM1WGJQd1pHblRId2t6T2phQlN4U2ZsNUVLTFEzbkFsSTkxc2JFWDRXdmFLK1pJK0ZXNTh3K1NVVktacTZCV0g0SHBDVzZnL2NUenoxc0sxNUgvbndBeS9yeWVXV2t6QmZSZjlCR2hYMSszRWpoQklxa2huaUZQdDBXc29rcXp6RC90V0J6UWpSWko3Qmx5Mm1mWVloME1WR1pVU21FaEVZMGdFbWIxMVl2R1VqNVBGUU5LQkNGbXcvM0JZRDBhRk00ZDVHbnc3MWtZVmVMNzJKOXhDQWVJb1hveHhLZFhrTVlyMGp3U1RObjN6N1NrNWFWSWRzUDkwdlpHZXA4UmJ1QzJFaEtpNzhlZTVrV05Mam0rOHRwc0diamxyNHVpRmtVcEh6TE1QM1E4anJvZHdyN0YxK1lPQ0FGOWVQb012US82TnhQbUVvczNEdmpYcmpyRnJ6RGpQU1F4MFFBYlhwWFRrMmtRaVVrUlpXcGlFOVpUcFhTUXcreWJHcVJaZ3FSY3BjM1d6YllZMy90ZHN2QmdIK3ZMc3duNk9WNFgyWjM3dHdxL0ZDZndVakFrNXVuc0M1aVE4K3RiVUxuYUtGQWtZeExXczB4VXBNR3ZRRVJjN2NBamNjRm16cm9rbDI2cXRpN0t4Y0hmYW9CMHFyeEpGYmFBaXNjT1Nzejhpc21RL1JzVXRaY1lBVmRKYThsZTFBcDNPd01CVUEzQjJ3akx0UU9ObjBaR3R4ZTBQS2tHSXVHcFZPSlMyUFNJVXFZRnFER01XSXBqbnY1ZW9oNG5hWkh4MjdjM3pxaXhCY1JFbGIvOGR4Rlg3dWRkNmt0YUtSeDRDS1hJNFBJU0RTVUhLTDJKY21XTEtkUjN2NlQ0eHZUWDhvY3BXREhWVlRzSWVWQnY3cUswQk1XeUFhTkV5K1JOT1lJYkdNZDhGS0E3cUpsZnl6MXdOMUQvbzc5Z2FPdmUza2xpVElBSHZzaXNEcWdMZVFKcjV1Qnd1QThEakdtZjJ5NmZZU0tIRlNJVEQzNVJXMGlOWWpCaktDUnhQNXJsQkJlbSs4emgxQ1NyMzJDMWYyQS95T0F2YXRXL3IwUmIrbnFRVjBxaW85YmJ0TUlTVEh0RW9QL3R0WWsxRUYrclNwNERsdkxGcGFxT3RtRnNhZllOOElGSGJ6aWtSUlQzU3hSL1VqV2dSakxhZ0NtNWFjVVlWRS9ybmkvR1AzaXpWbzgvUWEyS0pMam5qQXd0dUNyOFhpTWpTNmVrS0lLdjdqY1U1WHUrM3EzbUlsR2FVRitBMEx0b0hkL3hQZWtUNXlLblpsR3VYNVgyOWlEUlROU2wyZ2lsWW5KZWI1dytDWU1raC9zT3VGdz09IiwiZGF0YWtleSI6IkFRSUJBSGpQdG90YWlGQlF1M3hNdWw0b3hOMDNLelZNNDhNZkVKbXI0bHkwenNtTHVRRkxHNThaUDB3c0d2d2l1QXB1b25HbEFBQUFmakI4QmdrcWhraUc5dzBCQndhZ2J6QnRBZ0VBTUdnR0NTcUdTSWIzRFFFSEFUQWVCZ2xnaGtnQlpRTUVBUzR3RVFRTXVnWjBFU09RUVVYREpHd1lBZ0VRZ0R2RDB3OE00YjQ5bFROeHpER08wQVUwYSt2UEdTSURTOGhYcUxIVDF4RldlMkNNNkZNQ0wvYmZjZnE2QUZLQTB2ODl3K3FMSjZQQ2hOS0h4dz09IiwidmVyc2lvbiI6IjIiLCJ0eXBlIjoiREFUQV9LRVkiLCJleHBpcmF0aW9uIjoxNjU2NTU4NjQzfQ==" 
+        // IMAGE_TAG_AWS="latest"
+
+        GCP_PROJECT_ID="project-jenkins-352621"
+        GCP_CLUSTER_NAME="master"
+        GCP_LOCATION="us-central1-a"
+        IMAGE_REPO_HUB="site-backend"
+        IMAGE_TAG_HUB="latest"
+        ACCOUNT_ID_HUB="matkvz"
+        HUB_PASS="b5d9537c-ff80-4ff5-b353-e4b50f730ca6"
+        NAMESPACE="sitebackend"
+        CREDENTIALS_ID="GKE"
+    } 
+   
+    stages {
+        
+        // stage('Logging into AWS ECR') {
+        //     steps {
+        //         script {
+        //         sh "docker login --username AWS --password ${AWS_HUB_PASS} ${AWS_ACCOUNT_ID}.dkr.ecr.sa-east-1.amazonaws.com"
+        //         }
+                 
+        //     }
+        // }
+
+        stage('Cloning Git') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/matkvz2505/site-backend.git']]])
+            }  
+        }
+
+        // stage('Derrubando o container antigo') {
+        //     steps {
+        //         script {
+        //             try {
+        //                 sh "docker rm -f ${ACCOUNT_ID_HUB}/${IMAGE_REPO_HUB}:${IMAGE_TAG_HUB}"
+        //             }catch (Exception e) {
+        //                 sh "echo $e"
+        //             }
+        //         }
+        //     }
+        // }  
+
+        stage('Building image && login && e push') {
+            steps{
+                script {
+                    sh "docker build -t ${ACCOUNT_ID_HUB}/${IMAGE_REPO_HUB}:${IMAGE_TAG_HUB} ."
+                }
+
+                script {
+                    sh "docker login -u ${ACCOUNT_ID_HUB} --password ${HUB_PASS}"
+                }
+
+                script {
+                    sh "docker push ${ACCOUNT_ID_HUB}/${IMAGE_REPO_HUB}:${IMAGE_TAG_HUB}"
+                }
+            }
+        }
+
+        stage('Deploy to Google Kubernetes') {
+		    steps{
+			    echo "Deployment started ..."
+			    sh 'ls -ltr'
+			    sh 'pwd'
+                sh "sed -i 's/tagversion/${env.BUILD_ID}/g' namespace.yaml"
+			    sh "sed -i 's/tagversion/${env.BUILD_ID}/g' service.yaml"
+				sh "sed -i 's/tagversion/${env.BUILD_ID}/g' deployment.yaml"
+                echo "Start deployment of namespace.yaml"
+			    step([$class: 'KubernetesEngineBuilder', namespace: "${env.NAMESPACE}", projectId: env.GCP_PROJECT_ID, clusterName: env.GCP_CLUSTER_NAME, location: env.GCP_LOCATION, manifestPattern: 'namespace.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+			    echo "Start deployment of service.yaml"
+			    step([$class: 'KubernetesEngineBuilder', namespace: "${env.NAMESPACE}", projectId: env.GCP_PROJECT_ID, clusterName: env.GCP_CLUSTER_NAME, location: env.GCP_LOCATION, manifestPattern: 'service.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+				echo "Start deployment of deployment.yaml"
+				step([$class: 'KubernetesEngineBuilder', namespace: "${env.NAMESPACE}", projectId: env.GCP_PROJECT_ID, clusterName: env.GCP_CLUSTER_NAME, location: env.GCP_LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+			    echo "Deployment Finished ..."
+		    }
+	    }
+
+        // Uploading Docker images into AWS ECR
+        // stage('Tag ECR') {
+        //  steps{  
+        //     script {
+        //         sh "docker tag ${ACCOUNT_ID_HUB}/${IMAGE_REPO_HUB}:${IMAGE_TAG_HUB} ${REPOSITORY_URI}/${IMAGE_REPO_HUB}:${IMAGE_TAG_HUB}"
+        //         }
+        //     }
+        // }
+        
+        // stage('Building image For AWS') {
+        //   steps{
+        //     script {
+        //       sh "docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_HUB}:${IMAGE_TAG_HUB}"
+        //     }
+        //   }
+        // }
+    }
+}
+ ////////

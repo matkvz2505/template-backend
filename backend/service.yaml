@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: sitebackend
+  name: sitebackend
+  labels:
+    app: sitebackend
+spec:
+  type: LoadBalancer
+  selector:
+    app: sitebackend
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000

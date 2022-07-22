@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: sitebackend
+  name: sitebackend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: sitebackend
+      labels:
+        app: sitebackend
+    spec:
+      containers:
+        - name: matkvzsitebackend
+          image: matkvz/site-backend:latest
+          ports:
+            - containerPort: 3000
+  selector:
+    matchLabels:
+      app: sitebackend

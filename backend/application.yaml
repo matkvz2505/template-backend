@@ -7,7 +7,7 @@ spec:
   project: 'default'
 
   destination:
-    namespace: teste
+    namespace: teste # Com o - CreateNamespace=true pode colocar qualquer nome
     server: https://kubernetes.default.svc
   source:
     path: yaml

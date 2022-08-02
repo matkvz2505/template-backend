@@ -64,22 +64,22 @@ pipeline {
         }
 
         stage('Deploy to Google Kubernetes') {
-		    steps{
-			    echo "Deployment started ..."
-			    sh 'ls -ltr'
-			    sh 'pwd'
-                sh "sed -i 's/tagversion/${env.BUILD_ID}/g' namespace.yaml"
-			    sh "sed -i 's/tagversion/${env.BUILD_ID}/g' service.yaml"
-				sh "sed -i 's/tagversion/${env.BUILD_ID}/g' deployment.yaml"
-                echo "Start deployment of namespace.yaml"
-			    step([$class: 'KubernetesEngineBuilder', namespace: "${env.NAMESPACE}", projectId: env.GCP_PROJECT_ID, clusterName: env.GCP_CLUSTER_NAME, location: env.GCP_LOCATION, manifestPattern: 'namespace.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
-			    echo "Start deployment of service.yaml"
-			    step([$class: 'KubernetesEngineBuilder', namespace: "${env.NAMESPACE}", projectId: env.GCP_PROJECT_ID, clusterName: env.GCP_CLUSTER_NAME, location: env.GCP_LOCATION, manifestPattern: 'service.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
-				echo "Start deployment of deployment.yaml"
+		steps{
+			echo "Deployment started ..."
+			sh 'ls -ltr'
+			sh 'pwd'
+                	sh "sed -i 's/tagversion/${env.BUILD_ID}/g' namespace.yaml"
+			sh "sed -i 's/tagversion/${env.BUILD_ID}/g' service.yaml"
+			sh "sed -i 's/tagversion/${env.BUILD_ID}/g' deployment.yaml"
+                	echo "Start deployment of namespace.yaml"
+				step([$class: 'KubernetesEngineBuilder', namespace: "${env.NAMESPACE}", projectId: env.GCP_PROJECT_ID, clusterName: env.GCP_CLUSTER_NAME, location: env.GCP_LOCATION, manifestPattern: 'namespace.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+			echo "Start deployment of service.yaml"
+				step([$class: 'KubernetesEngineBuilder', namespace: "${env.NAMESPACE}", projectId: env.GCP_PROJECT_ID, clusterName: env.GCP_CLUSTER_NAME, location: env.GCP_LOCATION, manifestPattern: 'service.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+			echo "Start deployment of deployment.yaml"
 				step([$class: 'KubernetesEngineBuilder', namespace: "${env.NAMESPACE}", projectId: env.GCP_PROJECT_ID, clusterName: env.GCP_CLUSTER_NAME, location: env.GCP_LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
-			    echo "Deployment Finished ..."
-		    }
-	    }
+			echo "Deployment Finished ..."
+		}
+	}
 
         // Uploading Docker images into AWS ECR
         // stage('Tag ECR') {
